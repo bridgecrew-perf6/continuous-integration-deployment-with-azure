@@ -7,3 +7,9 @@ before_install:
 
 script:
   - docker run -e CI=true xclusiveravi/continuous-integration-azure npm run test -- --coverage
+
+deploy:
+  provider: azure_web_apps
+  username: ravikanthdba       # If AZURE_WA_USERNAME isn't set
+  password: Linkedin@202108   # If AZURE_WA_PASSWORD isn't set
+  slot: azure_deployment_slotname       # (optional) If AZURE_WA_SLOT isn't set
