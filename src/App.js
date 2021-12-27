@@ -8,13 +8,14 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Bye there!</p>
+        Changing this line again:
         <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Click here to Learn React
+          Learn React
         </a>
       </header>
     </div>
