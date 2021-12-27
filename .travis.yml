@@ -8,10 +8,3 @@ before_install:
 script:
   - docker run -e CI=true xclusiveravi/continuous-integration-azure npm run test -- --coverage
 
-deploy:
-  provider: azure_web_apps
-  name: "fibonacci-react-app"
-  username: "$fibonacci-react-app"       # If AZURE_WA_USERNAME isn't set
-  password: "cX7uxjCslvGLsQxlQ15aXZlCiFfC9NtxwQl52NcfRHmEFnuX4ef9H41jQgm7"   # If AZURE_WA_PASSWORD isn't set
-  on:
-    branch: main
