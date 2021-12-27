@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t xclusiveravi/continuous-integration-azure -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true xclusiveravi/continuous-integration-azure npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "react-application"
+  env: "Reactapplication-env"
+  bucket_name: "elasticbeanstalk-us-east-2-646561544081"
+  bucket_path: "react-application"
+  on:
+    branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+      secure: "$AWS_SECRET_KEY"
